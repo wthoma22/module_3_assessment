@@ -5,7 +5,6 @@ class StoresController < ApplicationController
     raw_results = JSON.parse(result.body, symbolize_names: true)[:stores]
     @results = raw_results.map do |store|
       Store.new(store)
-      binding.pry
     end
   end
 end
