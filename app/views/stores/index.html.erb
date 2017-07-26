@@ -8,12 +8,12 @@
     <li>Phone</li>
     <li>Type</li>
     <% @stores.each do |store| %>
-    <ul id="<%= store.store_id %>">
-      <li><%= link_to store.name, "stores/#{store.store_id}" %></li>
+    <ul id="<%= store.storeId %>">
+      <li><%= link_to @store.name, "stores/#{store.storeId}" %></li>
       <li><%= store.city %></li>
       <li><%= store.distance %></li>
       <li><%= store.phone %></li>
-      <li><%= store.store_type %></li>
+      <li><%= store.storeType %></li>
     </ul>
     <% end %>
   </ul>
