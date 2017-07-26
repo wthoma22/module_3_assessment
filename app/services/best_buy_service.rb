@@ -7,13 +7,13 @@ class BestBuyService
   def conn
     Faraday.new(:url => 'https://api.bestbuy.com/v1/') do |faraday|
       faraday.request  :url_encoded
-      faraday.response :logger                  
+      faraday.response :logger
       faraday.adapter  Faraday.default_adapter
     end
   end
 
   def response
-    connection.get(default_api_path).body
+    conn.get(default_api_path).body
   end
 
   def default_api_path
