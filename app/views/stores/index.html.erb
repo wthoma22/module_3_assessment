@@ -1,5 +1,20 @@
 <div class="container">
   <h2>Stores within 25 miles of 80202</h2>
-  <h1><%= raw_results[:total] %> Stores</h1>
-
+  <h1><%= @total %> Stores</h1>
+  <ul>
+    <li>Name</li>
+    <li>City</li>
+    <li>Distance</li>
+    <li>Phone</li>
+    <li>Type</li>
+    <% @stores.each do |store| %>
+    <ul id="<%= store.store_id %>">
+      <li><%= link_to store.name, "stores/#{store.store_id}" %></li>
+      <li><%= store.city %></li>
+      <li><%= store.distance %></li>
+      <li><%= store.phone %></li>
+      <li><%= store.store_type %></li>
+    </ul>
+    <% end %>
+  </ul>
 </div>
