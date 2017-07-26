@@ -51,21 +51,21 @@ RSpec.describe "Items API endpoints" do
     expect(response).to be_success
   end
 
-  # it "creates an item" do
-  #   params = { name: "Widget", description: "Just Lovely", image_url: "google.com" }
-  #   post api_v1_items_path, params: { item: params }
-  # 
-  #   expect(response).to be_success
-  #   item = JSON.parse(response.body, symbolize_names: true)
-  #
-  #   expect(item[:name]).to eq("Widget")
-  #   expect(item[:description]).to eq("Just Lovely")
-  #   expect(item[:image_url]).to eq("google.com")
-  #   expect(item).to have_key(:name)
-  #   expect(item[:name]).to be_a String
-  #   expect(item).to have_key(:description)
-  #   expect(item[:description]).to be_a String
-  #   expect(item).to have_key(:image_url)
-  #   expect(item[:image_url]).to be_a String
-  # end
+  xit "creates an item" do
+    params = { name: "Widget", description: "Just Lovely", image_url: "google.com" }
+    post api_v1_items_path, params: { item: params }
+
+    expect(response).to be_success
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(item[:name]).to eq("Widget")
+    expect(item[:description]).to eq("Just Lovely")
+    expect(item[:image_url]).to eq("google.com")
+    expect(item).to have_key(:name)
+    expect(item[:name]).to be_a String
+    expect(item).to have_key(:description)
+    expect(item[:description]).to be_a String
+    expect(item).to have_key(:image_url)
+    expect(item[:image_url]).to be_a String
+  end
 end
