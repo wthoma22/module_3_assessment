@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "Items API endpoints" do
   before do
     @item1 = create(:item)
-    @item2 = create(:item)
-    @item3 = create(:item)
+    @item2 = create(:item, name: "Wooden Lamp")
+    @item3 = create(:item, name: "Copper Keyboard")
   end
 
   scenario "it returns all items" do
