@@ -1,4 +1,4 @@
-class API::V1::ItemsController < ApplicationController
+class Api::V1::ItemsController < ApplicationController
   before_action :set_before, except: [:index, :create]
 
   def index
@@ -26,7 +26,7 @@ class API::V1::ItemsController < ApplicationController
 private
 
   def item_params
-    params.require(:item).permit(:name, :description, :image_url)
+    params.permit(:name, :description, :image_url)
   end
 
   def set_before
