@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Items API endpoints" do
   before do
-    item1 = FactoryGirl.create_list(:item, 3)
+    @item1 = create(:item)
+    @item2 = create(:item)
+    @item3 = create(:item)
   end
 
   scenario "it returns all items" do
@@ -19,7 +21,32 @@ RSpec.describe "Items API endpoints" do
     expect(item[:description]).to be_a String
     expect(item).to have_key(:image_url)
     expect(item[:image_url]).to be_a String
+  end
 
+  scenario "shows an item" do
+    get api_v1_item_path(@item1)
+
+    expect(response).to be_success
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(item[:name]).to eq(@item1.name)
+    expect(item[:description]).to eq(@item1.description)
+    expect(item[:image_url]).to eq(@item1.image_url)
+    expect(item).to have_key(:name)
+    expect(item[:name]).to be_a String
+    expect(item).to have_key(:description)
+    expect(item[:description]).to be_a String
+    expect(item).to have_key(:image_url)
+    expect(item[:image_url]).to be_a String
+  end
+
+  scenario "deletes an item" do
+    expect(Item.count).to eq(3)
+
+    deletes api_v1_item(@item1)
+
+    expect(Item.count).to eq(2)
+    expect(response).to be_success
   end
 end
 
