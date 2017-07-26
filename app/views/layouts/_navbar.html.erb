@@ -8,6 +8,16 @@
     </button>
     <a class="navbar-brand" href="/">Storedom</a>
   </div>
+  <div class="navbar-form navbar-left">
+    <div class="form group">
+      <%= form_tag("/search", method: "get") do %>
+      <%= label_tag(:search, "Search") %>
+      <%= text_field_tag(:find) %>
+      <%= submit_tag("Search") %>
+      <% end %>
+    </div>
+  </div>
+
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <li>

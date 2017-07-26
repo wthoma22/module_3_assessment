@@ -7,8 +7,8 @@ RSpec.describe "Visitor" do
 
         visit root_path
 
-        fill_in "search", with: "80202"
-        click_button "Search"
+        fill_in "find", with: "80202"
+        click_on "Search"
 
         expect(current_path).to eq(search_path)
         expect(page).to have_content("Stores within 25 miles of 80202")
