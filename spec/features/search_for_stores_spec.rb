@@ -20,6 +20,26 @@ RSpec.describe "Visitor" do
             expect(page).to have_selector(".distance")
             expect(page).to have_selector(".phone-number")
             expect(page).to have_selector(".store-type")
+          end
+        end
+
+        expect(page).to have_link("2")
+        click_on "2"
+
+        expect(current_path).to eq("/search")
+        expect(page).to_not have_link("2")
+        expect(page).to have_link("1")
+
+        expect(page).to have_content("17 Total Stores")
+        within ".search-results" do
+          expect(page).to have_selector(".store", count: 6)
+          within ".store-1" do
+            expect(page).to have_selector(".long-name")
+            expect(page).to have_selector(".city")
+            expect(page).to have_selector(".distance")
+            expect(page).to have_selector(".phone-number")
+            expect(page).to have_selector(".store-type")
+          end
         end
       end
     end

@@ -1,20 +1,24 @@
-<div class="container">
-  <h2>Stores within 25 miles of 80202</h2>
-  <h1><%= @total %> Stores</h1>
-  <ul>
-    <li>Name</li>
-    <li>City</li>
-    <li>Distance</li>
-    <li>Phone</li>
-    <li>Type</li>
-    <% @stores.each do |store| %>
-    <ul id="<%= store.storeId %>">
-      <li><%= link_to @store.name, "stores/#{store.storeId}" %></li>
-      <li><%= store.city %></li>
-      <li><%= store.distance %></li>
-      <li><%= store.phone %></li>
-      <li><%= store.storeType %></li>
-    </ul>
-    <% end %>
-  </ul>
+<%= @stores_count %> Total Stores
+<br/>
+<div class="search-results">
+  <% @stores.each do |store| %>
+        <div class="long-name">
+          Name: <%= store.name %><br>
+        </div>
+        <div class="city">
+          City: <%= store.city %><br>
+        </div>
+        <div class="distance">
+          Distance: <%= store.distance %><br>
+        </div>
+        <div class="phone-number">
+          Phone: <%= store.phone %><br>
+        </div>
+        <div class="store-type">
+          Store Type: <%= store.store_type %><br>
+      </div>
+    <br/>
+  <% end %>
 </div>
+
+<%= will_paginate @stores %>

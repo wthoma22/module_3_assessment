@@ -14,6 +14,7 @@ gem "less-rails-bootstrap"
 gem "minitest-rails"
 gem "figaro"
 gem "faraday"
+gem 'will_paginate'
 
 group :development, :test do
   gem "spring"
