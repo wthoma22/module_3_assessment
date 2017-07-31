@@ -1,7 +1,7 @@
 class BestBuyService
 
   def self.find_by_zip(zip)
-    connection = Faraday.new(url: "https://api.bestbuy.com/v1/stores(area(#{zip},25))?format=json&show=longName,city,distance,phone,storeType&pageSize=100&apiKey=445jt4mb4gsenju48n2ndu8d")
+    connection = Faraday.new(url: "https://api.bestbuy.com/v1/stores(area(#{zip},25))?format=json&show=longName,city,distance,phone,storeType&pageSize=100&apiKey=#{ENV["BEST-BUY-API"]}")
     response = connection.get
     raw_stores = JSON.parse(response.body, symbolize_names: true)
     raw_stores[:stores]
