@@ -1,4 +1,4 @@
-require './app/services/store_service'
+require './app/services/best_buy_service'
 
 class Store
   attr_reader :name, :description, :city, :distance, :phone, :store_type

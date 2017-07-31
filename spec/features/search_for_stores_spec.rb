@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe "Visitor" do
   context "searches by zipcode" do
     scenario "and sees stores within 25 miles of that zipcode" do
-      VCR.use_cassette("visitor searches by zip") do
 
         visit root_path
 
@@ -43,7 +42,6 @@ RSpec.describe "Visitor" do
         end
       end
     end
-  end
 end
 # As a user
 # When I visit "/"
